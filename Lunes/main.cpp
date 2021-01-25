@@ -6,8 +6,8 @@
 using namespace  std;
 string array_text[] ={}; // array for code of coin
 long int array_text_for_id[]={};
-
-void make_coin(int amount){
+string crypto_log_key[]={}; // crypto key for coin
+void make_coin(int amount ,string file_name){
     int loops = amount; // cycles of making
     int text_id_coin;
     string text_code;
@@ -29,20 +29,16 @@ void make_coin(int amount){
         text_id_coin += rand()%123+9999999;
         array_text_for_id[1]=text_id_coin;
     }
+    ofstream file(file_name);
+    file<<"@LUNES---"<<array_text<<array_text_for_id<<"___";
 
 }
 
 int main() {
 
     cout << "Lunes\n\n\n" << std::endl;
-    string code_for_coin;
-    ofstream file("coin.txt");
-    // create object to write down data in file
-    if(file){
-        cout<<"There is file "<<endl;
-    }
-    make_coin(1);
-    file<<"@LUNES---"<<array_text<<array_text_for_id;
+
+    make_coin(1,"coin.txt");
 
     return  0;
 }
