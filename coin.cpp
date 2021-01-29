@@ -3,10 +3,16 @@
 #include <iostream>
 #include <sys/stat.h>
 #include "string.h"
+#include "keys.cpp";
+#include "hash_system.h";
+
 using namespace  std;
 string array_text[] ={}; // array for code of coin
 long int array_text_for_id[]={};
 string crypto_log_key[]={}; // crypto key for coin
+
+
+
 void make_coin(int amount ,string file_name){
     int loops = amount; // cycles of making
     int text_id_coin;
@@ -30,7 +36,7 @@ void make_coin(int amount ,string file_name){
         array_text_for_id[1]=text_id_coin;
     }
     ofstream file(file_name);
-    file<<"@LUNES---"<<array_text<<array_text_for_id<<"___";
+    file<<"@LUNES---"<<array_text<<array_text_for_id<<"___"<<key_array;
 
 }
 
